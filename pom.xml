@@ -7,14 +7,37 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Aplicacao exemplo para demonstracao de tecnologia</name>
   <url>https://github.com/LeoCBS/curriculo</url>
+
+
+  	<properties>
+		<primefaces.version>5.0</primefaces.version>
+		<junit.version>4.11</junit.version>
+		<omnifaces.version>1.8.1</omnifaces.version>
+		<hibernate.version>4.0.1.Final</hibernate.version>
+	</properties>
+
+
   <dependencies>
-  
 	<!-- Primefaces -->
 	<dependency>
 		<groupId>org.primefaces</groupId>
 		<artifactId>primefaces</artifactId>
-		<version>5.0</version>
+		<version>${primefaces.version}</version>
 	</dependency>
+	
+	<dependency>
+		<groupId>org.primefaces.themes</groupId>
+		<artifactId>bootstrap</artifactId>
+		<version>1.0.10</version>
+	</dependency>
+	
+	<!-- omnifaces -->
+	<dependency>
+	    <groupId>org.omnifaces</groupId>
+	    <artifactId>omnifaces</artifactId>
+	    <version>${omnifaces.version}</version>
+	</dependency>
+		
 	<!-- JSF 2 API -->
 	<dependency>
 		<groupId>com.sun.faces</groupId>
@@ -26,12 +49,12 @@
 	<dependency>
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-core</artifactId>
-		<version>4.0.1.Final</version>
+		<version>${hibernate.version}</version>
 	</dependency>
 	<dependency>
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-entitymanager</artifactId>
-		<version>4.0.1.Final</version>
+		<version>${hibernate.version}</version>
 	</dependency>
 	<dependency>
 		<groupId>org.hibernate</groupId>
@@ -46,14 +69,44 @@
         <version>3.7.2</version>
     </dependency>  
     
+    <!-- JUnit -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <repositories>
+		<repository>
+			<id>primefaces-repository</id>
+			<name>Primefaces repository</name>
+			<url>http://repository.primefaces.org</url>
+		</repository>
+	</repositories>
   <build>
     <finalName>curriculo</finalName>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>2.3.2</version>
+			<configuration>
+				<source>1.7</source>
+				<target>1.7</target>
+				<debug>true</debug>
+			</configuration>
+		</plugin>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			<extensions>false</extensions>
+			<version>2.1.1</version>
+			<configuration>
+				<failOnMissingWebXml>false</failOnMissingWebXml>
+			</configuration>
+		</plugin>
+	</plugins>
   </build>
 </project>
