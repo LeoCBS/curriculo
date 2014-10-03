@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<div class="container">
+			<div class="row">
+				<div class="aw-breadcrumb">
+					<ui:insert name="bread_section" />
+				</div>
+			</div>
+			<span id="toTop" class="pointer" onclick="toTop();">
+				<i class="icon-arrow-up icon-large" />
+			</span>
+			<p:messages id="messages"
+				autoUpdate="true" closable="true"
+				showDetail="false" escape="false" />
+	</div>
+</html>

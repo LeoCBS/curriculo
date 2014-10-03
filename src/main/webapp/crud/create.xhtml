@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/createTabView.xhtml">
+
+	<ui:param name="form_create" value="form_create" />
+
+	<f:metadata>
+		<f:viewParam name="idCliente" value="#{clienteBean.idCliente}" />
+		<f:event type="preRenderView" listener="#{clienteBean.init()}" />
+	</f:metadata>
+
+	<ui:define name="title">
+			#{label['menu.clientes']}
+		</ui:define>
+
+	<ui:define name="bread_section">
+		<h:outputLink value="${request.contextPath}/cliente/search.aw">
+			#{label['menu.clientes']}
+		</h:outputLink>
+		<i class="fa fa-angle-double-right white"/>
+		<h:outputLink value="#">
+			#{label['create.edit']}
+		</h:outputLink>
+	</ui:define>
+
+	<ui:define name="form_fields">
+		<p:tabView id="tabView">
+			<p:tab title="#{label['new']}">
+				<ui:include src="/cliente/formCliente.xhtml" />
+			</p:tab>
+			<p:tab title="#{label['cliente.agenda']}"
+				disabled="#{clienteBean.entidade.idCliente == null}">
+				<ui:include src="/cliente/contatoAgenda.xhtml" />
+			</p:tab>
+		</p:tabView>
+	</ui:define>
+
+</ui:composition>
+</html>

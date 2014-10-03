@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+	
+	<ui:composition template="main.xhtml">
+		
+		<!-- Define o body da pagina -->
+		<ui:define name="body">
+        <div class="container">
+        	<h:form id="form_create" styleClass="form-horizontal">
+				<ui:insert name="section_name" />
+				<p:panel>
+					<h:panelGroup rendered="#{flExibeTitulo}">
+						<div>
+							<span class="search-filter-label">#{label['new']}:</span>
+						</div>
+					</h:panelGroup>
+					<br/>
+					<ui:insert name="form_fields"/>
+				</p:panel>
+				<br/>
+				<div>
+					<ui:insert name="dataTable"/>
+				</div>
+        	</h:form>
+		</div>
+		</ui:define>
+	</ui:composition>
+</html>

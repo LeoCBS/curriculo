@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="main.xhtml">
+
+	<ui:define name="body">
+
+		<div class="container">
+
+			<h:form id="form_search" class="form-inline">
+				<p:defaultCommand target="btSearch"/>
+
+				<p:panel styleClass="filter">
+					<div>
+						<span class="search-filter-label">#{label['search.filters']}:</span>
+					</div>
+					<br />
+					<ui:insert name="search_fields" />
+					<div class="row align-right">
+						<div class="bt-menu">
+							<p:commandButton value="#{label['clear']}" update="form_search" styleClass="ui-priority-secondary"
+								action="#{actionBean['clearFields']}" process="form_search"/>
+							<p:spacer width="5" />
+							<p:commandButton id="btSearch" value="#{label['search']}" update="form_search"
+								process="form_search" styleClass="ui-priority-primary"
+								 />
+						</div>
+					</div>
+				</p:panel>
+				<br />
+				<div>
+					<ui:insert name="dataTable" />
+				</div>
+				
+				<div class="row bt-menu">
+					<ui:insert name="create_button" />
+				</div>
+
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
