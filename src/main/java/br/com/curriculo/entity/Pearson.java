@@ -14,8 +14,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "CLIENTE", schema = "cv")
-@NamedQueries({ @NamedQuery(name = Pessoa.NAMED_QUERY_FIND_ALL, query = "SELECT p FROM Pessoa p") })
-public class Pessoa extends Auditoria implements Serializable {
+@NamedQueries({ @NamedQuery(name = Pearson.NAMED_QUERY_FIND_ALL, query = "SELECT p FROM Pearson p") })
+public class Pearson extends Auditing implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static final String NAMED_QUERY_FIND_ALL = "Cliente.findAll";
@@ -47,7 +47,7 @@ public class Pessoa extends Auditoria implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Pessoa other = (Pessoa) obj;
+		Pearson other = (Pearson) obj;
 		if (dsName == null) {
 			if (other.dsName != null)
 				return false;

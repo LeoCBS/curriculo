@@ -3,15 +3,15 @@ package br.com.curriculo.mbean;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import br.com.curriculo.entity.Pessoa;
-import br.com.curriculo.service.PessoaService;
+import br.com.curriculo.entity.Pearson;
+import br.com.curriculo.service.PearsonService;
 
 @ManagedBean
 @ViewScoped
-public class PessoaBean extends AbstractBean<Pessoa, PessoaService> {
+public class PearsonBean extends AbstractBean<Pearson, PearsonService> {
 
 	@Override
-	protected Pessoa createNovaEntidade() {
+	protected Pearson createNovaEntidade() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -23,7 +23,7 @@ public class PessoaBean extends AbstractBean<Pessoa, PessoaService> {
 	}
 
 	@Override
-	protected PessoaService getService() {
+	protected PearsonService getService() {
 		// TODO Auto-generated method stub
 		return null;
 	}

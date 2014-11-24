@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/create.xhtml">
+
+	<ui:param name="form_create" value="form_create" />
+	<ui:param name="actionBean" value="#{pessoaBean}" />
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{actionBean.id}" />
+		<f:event type="preRenderView" listener="#{actionBean.init()}" />
+	</f:metadata>
+
+	<ui:define name="title">
+			#{label['menu.pearson']}
+		</ui:define>
+
+	<ui:define name="bread_section">
+		<h:outputLink value="${request.contextPath}/pearson/search.aw">
+			#{label['menu.pearson']}
+		</h:outputLink>
+		<i class="fa fa-angle-double-right white"/>
+		<h:outputLink value="#">
+			#{label['create.edit']}
+		</h:outputLink>
+	</ui:define>
+
+	<ui:define name="form_fields">
+		<ui:include src="/pearson/formCreate.xhtml" />
+	</ui:define>
+
+</ui:composition>
+</html>

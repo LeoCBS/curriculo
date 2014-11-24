@@ -8,7 +8,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @MappedSuperclass
-public abstract class Auditoria extends AbstractEntity {
+public abstract class Auditing extends AbstractEntity {
 
 	public abstract int hashCode();
 

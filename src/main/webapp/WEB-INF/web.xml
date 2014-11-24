@@ -26,12 +26,12 @@
    <!-- JSF URL mapping -->
    <servlet-mapping>
        <servlet-name>Faces Servlet</servlet-name>
-       <url-pattern>*.jsf</url-pattern>
+       <url-pattern>*.cv</url-pattern>
    </servlet-mapping>
    
    <servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>/aw/*</url-pattern>
+		<url-pattern>/cv/*</url-pattern>
 	</servlet-mapping>
 	
    <context-param>
