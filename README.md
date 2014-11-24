@@ -9,4 +9,5 @@ Projeto exemplo para demonstrar a utilização das seguintes tecnologias:
 * SQLLite
 * Bootstrap 3
 * Git
+* Gitflow
 * Maven 3

@@ -4,10 +4,12 @@ import java.util.HashMap;
 
 import javax.annotation.PostConstruct;
 
-import br.com.attracti.aw.entity.AbstractEntity;
-import br.com.attracti.aw.mbean.lazymodel.AbstractLazyModel;
-import br.com.attracti.aw.service.AbstractService;
-import br.com.attracti.aw.utils.BeanHelper;
+import br.com.curriculo.entity.AbstractEntity;
+import br.com.curriculo.mbean.lazymodel.AbstractLazyModel;
+import br.com.curriculo.service.AbstractService;
+import br.com.curriculo.utils.BeanHelper;
+
+
 
 public abstract class AbstractBean<M extends AbstractEntity, T extends AbstractService<M>> {
 
