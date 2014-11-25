@@ -1,4 +1,4 @@
-Projeto exemplo para demonstrar a utilização das seguintes tecnologias:
+#Technologies
 
 * Java EE 6
 * JSF 2
