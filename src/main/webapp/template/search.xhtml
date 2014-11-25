@@ -33,6 +33,17 @@
 				<br />
 				<div>
 					<ui:insert name="dataTable" />
+					
+					<p:confirmDialog widgetVar="deleteDlg" id="deleteDialog"
+						header="#{label['delete']}" message="#{label['delete.question']}"
+						width="400" modal="true" closable="false" severity="alert">
+						<h:panelGroup layout="block" style="text-align: right">
+							<p:commandButton value="#{label['yes']}"
+								action="#{actionBean.delete()}" oncomplete="PF('deleteDlg').hide();"
+								update="table" />
+							<p:commandButton value="#{label['no']}" onclick="PF('deleteDlg').hide();" />
+						</h:panelGroup>
+					</p:confirmDialog>
 				</div>
 				
 				<div class="row bt-menu">

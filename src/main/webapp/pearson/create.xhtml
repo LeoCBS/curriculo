@@ -10,7 +10,7 @@
 	<ui:param name="actionBean" value="#{pearsonBean}" />
 
 	<f:metadata>
-		<f:viewParam name="id" value="#{actionBean.id}" />
+		<f:viewParam name="id" value="#{pearsonBean.id}" />
 		<f:event type="preRenderView" listener="#{pearsonBean.init()}" />
 	</f:metadata>
 
@@ -19,7 +19,7 @@
 		</ui:define>
 
 	<ui:define name="bread_section">
-		<h:outputLink value="${request.contextPath}/pearson/search.aw">
+		<h:outputLink value="${request.contextPath}/pearson/search.cv">
 			#{label['menu.pearson']}
 		</h:outputLink>
 		<i class="fa fa-angle-double-right white"/>

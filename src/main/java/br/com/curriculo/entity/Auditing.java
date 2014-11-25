@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -14,7 +16,7 @@ public abstract class Auditing extends AbstractEntity {
 
 	public abstract boolean equals(Object obj);
 
-	@Column(name = "DT_CREATE")
+	@Column(name = "DT_CREATE", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dtCreate;
 
@@ -40,28 +42,15 @@ public abstract class Auditing extends AbstractEntity {
 	}
 
 
-//	@PrePersist
-//	protected void onPrePersist() {
-//		this.dtCreate = new Date();
-//		this.dtUpdate = new Date();
-//
-//		this.usuarioCreate = (Usuario) AWUtils
-//				.getAttributeFromSession(AWConstants.USUARIO_LOGADO);
-//		this.usuarioUpdate = (Usuario) AWUtils
-//				.getAttributeFromSession(AWConstants.USUARIO_LOGADO);
-//
-//		// TODO mudar para empresa do usuario logado
-//		Empresa empresa = new Empresa();
-//		empresa.setIdEmpresa(1L);
-//		this.empresa = empresa;
-//
-//	}
-//
-//	@PreUpdate
-//	protected void onPreUpdate() {
-//		this.usuarioUpdate = (Usuario) AWUtils
-//				.getAttributeFromSession(AWConstants.USUARIO_LOGADO);
-//		this.dtUpdate = new Date();
-//	}
+	@PrePersist
+	protected void onPrePersist() {
+		this.dtCreate = new Date();
+		this.dtUpdate = new Date();
+	}
+
+	@PreUpdate
+	protected void onPreUpdate() {
+		this.dtUpdate = new Date();
+	}
 
 }

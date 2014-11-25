@@ -4,8 +4,6 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import org.apache.commons.lang3.StringUtils;
-
 import br.com.curriculo.entity.Pearson;
 import br.com.curriculo.mbean.lazymodel.PearsonLazyDataModel;
 import br.com.curriculo.service.PearsonService;
@@ -22,14 +20,6 @@ public class PearsonBean extends AbstractBean<Pearson, PearsonService> {
 		super.lazyDataModel = new PearsonLazyDataModel(this.pearsonService);
 	}
 	
-	public void init() {
-		if (StringUtils.isBlank(super.id)) {
-			super.isCreate = true;
-		} else {
-			super.isCreate = false;
-		}
-	}
-
 	
 	@Override
 	protected Pearson createNovaEntidade() {
