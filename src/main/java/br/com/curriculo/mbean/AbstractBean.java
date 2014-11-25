@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.lang3.StringUtils;
+
 import br.com.curriculo.entity.AbstractEntity;
 import br.com.curriculo.mbean.lazymodel.AbstractLazyModel;
 import br.com.curriculo.service.AbstractService;
@@ -36,6 +38,8 @@ public abstract class AbstractBean<M extends AbstractEntity, T extends AbstractS
 	protected abstract void posConstruct();
 
 	protected abstract String getBindingFormID();
+	
+	protected String id;
 
 	@PostConstruct
 	protected void posConstructAbstract() {
@@ -43,6 +47,15 @@ public abstract class AbstractBean<M extends AbstractEntity, T extends AbstractS
 		this.entidade = this.createNovaEntidade();
 		posConstruct();
 
+	}
+	
+	public void init() {
+		if (StringUtils.isBlank(this.id)) {
+			this.isCreate = true;
+		} else {
+			this.entidade = getService().findByID(Integer.parseInt(this.id));
+			this.isCreate = false;
+		}
 	}
 
 	public void createUpdate() {
@@ -110,5 +123,15 @@ public abstract class AbstractBean<M extends AbstractEntity, T extends AbstractS
 	public void setIsCreate(Boolean isCreate) {
 		this.isCreate = isCreate;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	
 
 }

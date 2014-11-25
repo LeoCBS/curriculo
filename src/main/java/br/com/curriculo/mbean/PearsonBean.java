@@ -1,19 +1,29 @@
 package br.com.curriculo.mbean;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import br.com.curriculo.entity.Pessoa;
-import br.com.curriculo.service.PessoaService;
+import br.com.curriculo.entity.Pearson;
+import br.com.curriculo.mbean.lazymodel.PearsonLazyDataModel;
+import br.com.curriculo.service.PearsonService;
 
 @ManagedBean
 @ViewScoped
-public class PessoaBean extends AbstractBean<Pessoa, PessoaService> {
+public class PearsonBean extends AbstractBean<Pearson, PearsonService> {
 
+	@EJB
+	private PearsonService pearsonService;
+	
 	@Override
-	protected Pessoa createNovaEntidade() {
-		// TODO Auto-generated method stub
-		return null;
+	protected void posConstruct() {
+		super.lazyDataModel = new PearsonLazyDataModel(this.pearsonService);
+	}
+	
+	
+	@Override
+	protected Pearson createNovaEntidade() {
+		return new Pearson();
 	}
 
 	@Override
@@ -23,9 +33,8 @@ public class PessoaBean extends AbstractBean<Pessoa, PessoaService> {
 	}
 
 	@Override
-	protected PessoaService getService() {
-		// TODO Auto-generated method stub
-		return null;
+	protected PearsonService getService() {
+		return this.pearsonService;
 	}
 
 	@Override
@@ -36,12 +45,6 @@ public class PessoaBean extends AbstractBean<Pessoa, PessoaService> {
 
 	@Override
 	protected void validaForm() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	protected void posConstruct() {
 		// TODO Auto-generated method stub
 		
 	}

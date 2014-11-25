@@ -1,0 +1,77 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/search.xhtml">
+	
+	<ui:param name="actionBean" value="#{pearsonBean}" />
+
+	<ui:define name="title">
+			#{label['menu.pearson']}
+		</ui:define>
+
+	<ui:define name="bread_section">
+		<h:outputLink value="${request.contextPath}/pearson/search.cv">
+			#{label['menu.pearson']}
+		</h:outputLink>
+	</ui:define>
+	
+	<ui:define name="search_fields">
+		<div class="form-group">
+			<h:outputLabel value="#{label['id']}: " />
+			<p:inputText id="inputId"
+				value="#{actionBean.lazyDataModel.filters['id']}" />
+		</div>
+		<div class="form-group">
+			<h:outputLabel value="#{label['name']}: " />
+			<p:inputText id="inputName"
+				value="#{actionBean.lazyDataModel.filters['dsName']}" />
+		</div>
+
+	</ui:define>
+	
+	<ui:define name="dataTable">
+		<p:dataTable id="table" paginator="true"
+			paginatorTemplate="{CurrentPageReport} {PreviousPageLink} {PageLinks} {NextPageLink} {RowsPerPageDropdown}"
+			currentPageReportTemplate="{startRecord} - {endRecord} #{label['of']} #{actionBean.lazyDataModel.rowCount}"
+			emptyMessage="#{label['datatable.empty']}" paginatorPosition="bottom"
+			value="#{actionBean.lazyDataModel}" lazy="true" var="item"
+			rows="10" rowsPerPageTemplate="5,10,15">
+			
+			<p:column headerText="#{label['id']}" width="10%">
+				<h:outputText value="#{item.id}" />
+			</p:column>
+			<p:column headerText="#{label['name']}" width="40%">
+				<h:outputText value="#{item.dsName}" />
+			</p:column>
+
+			<p:column headerText="" width="8%" styleClass="text-align-center">
+				<h:outputLink styleClass="glyphicon glyphicon-pencil"
+					value="#{request.contextPath}/pearson/create.cv">
+					<f:param name="id" value="#{item.id}" />
+				</h:outputLink>
+				<p:spacer width="3" />
+				<p:commandLink oncomplete="PF('deleteDlg').show();">
+					<i class="glyphicon glyphicon-remove" />
+					<f:setPropertyActionListener value="#{item}"
+						target="#{actionBean.entidade}" />
+				</p:commandLink>
+			</p:column>
+
+		</p:dataTable>
+
+	</ui:define>
+	
+	<ui:define name="create_button">
+		<h:outputLink id="btCreate" value="create.cv"
+			class="btn btn-success">
+				<i class="fa fa-plus"></i>
+				#{label['new']}
+				<f:param name="isCreate" value="true" />
+		</h:outputLink>
+	</ui:define>
+
+</ui:composition>
+</html>

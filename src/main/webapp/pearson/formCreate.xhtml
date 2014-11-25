@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:param name="flExibeFiltro" value="false" />
+
+<f:metadata>
+	<f:viewParam name="id" value="#{actionBean.id}" />
+	<f:event type="preRenderView" listener="#{actionBean.init()}" />
+</f:metadata>
+
+<h:form id="form_create" styleClass="form-horizontal">
+
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label for="inputId" class="col-sm-3 control-label">#{label['id']}:</label>
+			<div class="col-sm-9">
+				<p:inputText id="inputId" value="#{actionBean.entidade.id}"
+					styleClass="form-control" disabled="true" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputName" class="col-sm-3 control-label">#{label['name']}:</label>
+			<div class="col-sm-9">
+				<p:inputText id="inputName" required="true"
+					requiredMessage="#{label['name']} #{label['required']}"
+					value="#{actionBean.entidade.dsName}"
+					styleClass="form-control"/>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="bt-menu">
+			<p:commandButton value="#{label['cancel']}" update="form_create"
+				actionListener="#{actionBean.cancel()}" />
+			<p:spacer width="5" />
+			<p:commandButton value="#{label['save']}" ajax="false"
+				update="form_create messages" process="form_create" 
+				action="#{actionBean.createUpdate}" />
+		</div>
+	</div>
+</h:form>
+</html>
