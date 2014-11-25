@@ -3,7 +3,7 @@
 	<groupId>br.com.lcborges</groupId>
 	<artifactId>curriculo</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>Aplicacao exemplo para demonstracao de tecnologia</name>
 	<url>https://github.com/LeoCBS/curriculo</url>
 
