@@ -5,7 +5,7 @@
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
 
-	<persistence-unit name="aw">
+	<persistence-unit name="cv">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:jboss/datasources/cv</jta-data-source>
 		<properties>

@@ -6,15 +6,15 @@
 
 <ui:composition template="/template/search.xhtml">
 	
-	<ui:param name="actionBean" value="#{pessoaBean}" />
+	<ui:param name="actionBean" value="#{pearsonBean}" />
 
 	<ui:define name="title">
-			#{label['menu.crud']}
+			#{label['menu.pearson']}
 		</ui:define>
 
 	<ui:define name="bread_section">
-		<h:outputLink value="${request.contextPath}/pessoa/search.aw">
-			#{label['menu.crud']}
+		<h:outputLink value="${request.contextPath}/pearson/search.cv">
+			#{label['menu.pearson']}
 		</h:outputLink>
 	</ui:define>
 	
@@ -35,7 +35,7 @@
 	<ui:define name="dataTable">
 		<p:dataTable id="table" paginator="true"
 			paginatorTemplate="{CurrentPageReport} {PreviousPageLink} {PageLinks} {NextPageLink} {RowsPerPageDropdown}"
-			currentPageReportTemplate="{startRecord} - {endRecord} #{label['de']} #{actionBean.lazyDataModel.rowCount}"
+			currentPageReportTemplate="{startRecord} - {endRecord} #{label['of']} #{actionBean.lazyDataModel.rowCount}"
 			emptyMessage="#{label['datatable.empty']}" paginatorPosition="bottom"
 			value="#{actionBean.lazyDataModel}" lazy="true" var="item"
 			rows="10" rowsPerPageTemplate="5,10,15">
@@ -62,6 +62,15 @@
 
 		</p:dataTable>
 
+	</ui:define>
+	
+	<ui:define name="create_button">
+		<h:outputLink id="btCreate" value="create.cv"
+			class="btn btn-success">
+				<i class="fa fa-plus"></i>
+				#{label['new']}
+				<f:param name="isCreate" value="true" />
+		</h:outputLink>
 	</ui:define>
 
 </ui:composition>

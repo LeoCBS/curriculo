@@ -10,8 +10,7 @@ public class PearsonService extends AbstractService<Pearson> {
 
 	@Override
 	protected Class<Pearson> getEntityClass() {
-		// TODO Auto-generated method stub
-		return null;
+		return Pearson.class;
 	}
 
 	@Override

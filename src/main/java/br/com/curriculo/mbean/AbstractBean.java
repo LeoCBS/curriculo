@@ -36,6 +36,8 @@ public abstract class AbstractBean<M extends AbstractEntity, T extends AbstractS
 	protected abstract void posConstruct();
 
 	protected abstract String getBindingFormID();
+	
+	protected String id;
 
 	@PostConstruct
 	protected void posConstructAbstract() {
@@ -110,5 +112,15 @@ public abstract class AbstractBean<M extends AbstractEntity, T extends AbstractS
 	public void setIsCreate(Boolean isCreate) {
 		this.isCreate = isCreate;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	
 
 }
