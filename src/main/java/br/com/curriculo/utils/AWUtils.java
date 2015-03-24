@@ -40,7 +40,10 @@ public class AWUtils {
      * @throws Exception
      */
     public static String MD5(String text) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-        MessageDigest md;
+        if(text == null){
+        	throw new IllegalArgumentException("Param text can't be null");
+        }
+    	MessageDigest md;
         md = MessageDigest.getInstance("MD5");
         byte[] md5hash = new byte[32];
         md.update(text.getBytes("iso-8859-1"), 0, text.length());
@@ -71,18 +74,29 @@ public class AWUtils {
 
     }
 
-    public static String capitalizeString(String value) {
+    /**
+     * Convert first letter to upper from which word
+     * @param text
+     * @return
+     */
+    public static String capitalizeString(String text) {
+    	if(text == null){
+        	throw new IllegalArgumentException("Param text can't be null");
+        }
         String retorno = "";
-        String[] split = value.toLowerCase().split(" ");
+        String[] split = text.toLowerCase().split(" ");
         for (String string : split) {
             retorno = retorno + " " + string.replaceFirst(string.substring(0, 1), string.substring(0, 1).toUpperCase());
         }
         return retorno.trim();
     }
 
-    public static String getSHA(String string) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    public static String getSHA(String text) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    	 if(text == null){
+         	throw new IllegalArgumentException("Param text can't be null");
+         }
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-        byte[] hash = messageDigest.digest(string.getBytes("UTF-8"));
+        byte[] hash = messageDigest.digest(text.getBytes("UTF-8"));
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < hash.length; i++) {
             stringBuilder.append(Integer.toString((hash[i] & 0xff) + 0x100, 16).substring(1));

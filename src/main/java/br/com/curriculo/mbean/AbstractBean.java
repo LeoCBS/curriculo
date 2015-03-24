@@ -94,7 +94,7 @@ public abstract class AbstractBean<M extends AbstractEntity, T extends AbstractS
 
 	public void clearFields() {
 		this.entidade = this.createNovaEntidade();
-		// valida se a tela tem filtos
+		// valida se a tela tem filtros
 		if (this.lazyDataModel != null) {
 			this.lazyDataModel.setFilters(new HashMap<String, Object>());
 		}
