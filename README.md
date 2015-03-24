@@ -11,3 +11,7 @@
 * Git
 * Gitflow
 * Maven 3
+* JUnit 4.1
+
+
+[![Build Status](https://drone.io/github.com/LeoCBS/curriculo/status.png)](https://drone.io/github.com/LeoCBS/curriculo/latest)
